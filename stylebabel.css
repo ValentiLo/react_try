@@ -1,0 +1,26 @@
+body{width: 100%;line-height: 1.5;}
+h1,h2,h3{color: red;}
+.vert{border: 1px red solid;background: aliceblue;margin: auto;padding: 40px;}
+.vert{width: 80%; }
+.code{padding-left: 50px;}
+.foc{border: 1px red solid;background: seashell;margin: auto;padding: 20px;width: 70%;}
+.bor{border: 1px red solid;padding: 10px;margin: 10px 150px ;background: seashell;}
+.fl{display: flex; gap: 30px;justify-content: space-between;}
+.w{width: 250px;padding: 10px;border: 1px red solid;}
+.bor::before {
+  content: "🔗";}
+  img{display: block; padding: 5px;border: 1px solid red;}
+  .res{width: 80%;margin: auto;margin-top: 10px;}
+  span{padding: 3px;background: beige;border: 1px solid palevioletred;}
+  .red{color: red; padding: 2px;background: yellow;font: 1em sans-serif;}
+  .card-price-name{font: 1.1em sans-serif;background: aliceblue;border: 0ch;}
+  .card-price-value{font: 1.3em sans-serif;background: aliceblue;border: 0ch;padding-left: 20px;}
+  #root{border: 1px blue solid; margin: 20px auto;}
+  .cards{display: flex;gap: 50px;justify-content: space-around;flex-wrap: wrap;}
+  .card{ box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.1); border-radius: 4px;
+  transition: 0.2s;padding: 5px;}
+  .card:hover {
+  box-shadow: 4px 8px 16px rgba(51, 85, 255, 0.2);
+}
+.card-top-seller::before {
+  content: "🔥";}

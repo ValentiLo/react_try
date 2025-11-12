@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <link rel="stylesheet" href="stylebabel.css">
+    <title>Форматируем данные</title>
+</head>
+<body>
+  <div class="vert">
+    <h2>
+Форматируем данные
+    </h2>
+    <p>Часто формат вывода данных в макете может требовать дополнительной подготовки. Как, например, это происходит с ценой. В данных она хранится в виде 14000, а вывести её нужно с разделителем, то есть так:<span>14 000</span>
+
+    </p>
+    <p>
+В этом случае нам пригодится метод <span>toLocaleString()</span>. Он преобразует число в строку и возвращает значение, используя указанный языковой стандарт. Если метод используется без параметров, то он использует язык по-умолчанию.
+    </p>
+    <p>
+Например, для числа <span>1500</span> метод <span>toLocaleString()</span> в русской локализации вернёт строку <span>1 500</span>, то есть добавит пробелы между триадами разрядов.
+    </p>
+    <p class="code"><h2>Пример</h2>
+<span>price.toLocaleString()</span>
+    </p>
+    <p>
+Но этом преображение цены не заканчивается. Если вы внимательно изучили карточку яхты, то, наверняка, заметили, что к цене добавляется единица измерения. Единицу измерения удобно добавить с помощью интерполяции шаблонной строки.
+    </p>
+    <p>
+       <span class="red">Интерполяция шаблонной строки</span>  — это техника для вставки вычисленных значений переменных (подстановок) в строку. В JavaScript это можно сделать с помощью шаблонных строк, обрамлённых в обратные кавычки <span>(`)</span>. Подстановки внутри шаблонной строки обозначаются знаком доллара и фигурными скобками, то есть так: <span>${...}</span>. Выражение внутри фигурных скобок будет вычислено и его результат вставлен в строку.
+    </p>
+    <p>Например, чтобы добавить к цене единицу измерения, мы можем использовать шаблонную строку вида: <span>${price} ₽/час`</span>`.</p>
+    <p>А можем одновременно и отформатировать число и добавить единицу измерения, допустим, так:</p>
+    <p class="code bor">
+        const price = 1500;<br>
+const formattedPrice = `${price.toLocaleString()} ₽/час`;
+    </p>
+    <p>В результате в переменной formattedPrice будет хранится строка <span>1 500 ₽/час.</span></p>
+    <p></p>
+    <img src="babel5_1.png" alt="image" class="res">
+    <div id="root"></div>
+    </div>
+    <script type="text/babel">
+    // <!--
+    const container = document.getElementById('root');
+    const root = ReactDOM.createRoot(container);
+    root.render(<App/>);
+
+    function App() {
+      const name = 'Катер Meridian 401';
+      const description = 'Яхта 401 длиной 12.5 метров и шириной 4.2 метра';
+      const img = 'img/photo-card-1.jpg';
+
+      const price = 15000;
+      const formattedPrice = `${price.toLocaleString()} ₽/час`; // Отформатируйте цену из price
+
+      return (
+        <section className="rent">
+          <ul className="cards">
+            <li className="card">
+              <img className="card-img" src={img} width="280" height="140" alt="Белая двухпалубная яхта"/>
+              <div className="card-content">
+                <h3 className="card-title">{name}</h3>
+                <p className="card-description">{description}</p>
+                <ul className="card-features">
+                  <li>2 каюты</li>
+                  <li>4 спальных места</li>
+                  <li>аудиосистема, кондиционер</li>
+                </ul>
+              </div>
+              <p className="card-price">
+                <span className="card-price-name">Цена:</span>
+                <span className="card-price-value">{formattedPrice}</span>
+              </p>
+            </li>
+          </ul>
+        </section>
+        );
+      }
+    // -->
+  </script>
+</body>
+</html>

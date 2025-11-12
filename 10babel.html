@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <link rel="stylesheet" href="stylebabel.css">
+  <script src="data4.js"></script>
+    <title>Отображаем все карточки</title>
+</head>
+<body>
+  <div class="vert">
+    <h2>
+Отображаем все карточки
+    </h2>
+   <p>Чтобы отобразить переменное количество карточек при любой длине массива <span>cards</span>, подойдёт метод map. Во время перебора элементов в массиве, мы сможем создать компонент <span>Card</span> для каждого элемента.</p>
+   
+   <pre class="foc">
+    cards.map((item) => (
+  /* Создание компонента Card */
+  /* item - очередной элемента массива cards */
+))</pre>
+<p>При динамическом создании компонентов в цикле нужно добавим для React «подсказку», чтобы он мог различить экземпляры компонентов и эффективно обновлял страницу. В качестве такой подсказки обычно используют уникальный идентификатор объекта. И каждому компоненту в цикле назначают служебный параметр key с этим идентификатором.</p>
+   <pre class="bor">cards.map((item) => (
+                       &lt;Card cardData=<span>{item}</span> key=<span>{item.id}</span>/>
+                     ))</pre>
+                     <p class="foc">
+                      Задача на этом шаге — создать массив компонентов <span>Card</span>. Передать для каждого компонента в параметре <span>cardData</span> свой набор данных. И в конце отобразить массив компонентов <span>Card</span> внутри списка &lt;ul className="cards">.
+                     </p>
+   
+  
+    <img src="babel10.png" alt="image" class="res">
+   
+     
+    
+    <div id="root"></div>
+    </div>
+      <script type="text/babel">
+    // <!--
+    const container = document.getElementById('root');
+    const root = ReactDOM.createRoot(container);
+    root.render(<App cards={cards}/>);
+
+    function App({cards}) {
+      const [firstCardData] = cards;
+      return (
+        <section className="rent">
+          <ul className="cards">
+            {/* В цикле замените firstCardData на очередной элемент массива cards и добавьте параметр key */}
+            {cards.map((item) => (
+              <Card cardData={item} key={item.id}/>
+            ))}
+          </ul>
+        </section>
+      );
+    }
+
+    function Card({cardData}) {
+      const featuresList = cardData.features.map((feature) => (
+        <li>{feature}</li>
+      ));
+      const formattedPrice = `${cardData.price.toLocaleString()} ₽/час`;
+
+      return (
+        <li className="card">
+          <img className="card-img" src={cardData.img} width="280" height="140" alt="Белая двухпалубная яхта"/>
+          <div className="card-content">
+            <h3 className="card-title">{cardData.name}</h3>
+            <p className="card-description">{cardData.description}</p>
+            <ul className="card-features">
+              {featuresList}
+            </ul>
+          </div>
+          <p className="card-price">
+            <span className="card-price-name">Цена:</span>
+            <span className="card-price-value">{formattedPrice}</span>
+          </p>
+        </li>
+      );
+    }
+    // -->
+  </script>
+
+
+
+</body>
+</html>

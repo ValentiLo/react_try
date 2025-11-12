@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <link rel="stylesheet" href="stylebabel.css">
+ 
+    <title>Document</title>
+</head>
+<body>
+  <ul>
+    <li>
+      <a1 href="1babel.html">1tema</a1>
+    </li>
+    <li>
+      <a2 href="2babel.html">2tema</a2>
+    </li>
+    <li>
+      <a3 href="3babel.html">3tema</a3>
+    </li>
+    <li>
+      <a4 href="4babel.html">4tema</a4>
+    </li>
+    <li>
+      <a5 href="5babel.html">5tema</a5>
+    </li>
+    <li>
+      <a6 href="6babel.html">6tema</a6>
+    </li>
+    <li>
+      <a7 href="7babel.html">7tema</a7>
+    </li>
+    <li>
+      <a8 href="8babel.html">8tema</a8>
+    </li>
+    <li>
+      <a9 href="9babel.html">9tema</a9>
+    </li>
+    <li>
+      <a10 href="10babel.html">10tema</a10>
+    </li>
+    <li>
+      <a11 href="11babel.html">11tema</a11>
+    </li>
+    <li>
+      <a12 href="12babel.html">12tema</a12>
+    </li>
+    <li>
+      <a13 href="13babel.html">13tema</a13>
+    </li>
+    <li>
+      <a14 href="14babel.html">14tema</a14>
+    </li>
+    <li>
+      <a15 href="15babel.html">15tema</a15>
+    </li>
+    <li>
+      <a16 href="16babel.html">16tema</a16>
+    </li>
+    <li>
+      <a17 href="17babel.html">17tema</a17>
+    </li>
+    <li>
+      <a18 href="18babel.html">18tema</a18>
+    </li>
+    <li>
+      <a19 href="19babel.html">19tema</a19>
+    </li>
+    <li>
+      <a20 href="20babel.html">20tema</a20>
+    </li>
+    <li>
+      <a21 href="21babel.html">21tema</a21>
+    </li>
+    <li>
+      <a22 href="22babel.html">22tema</a22>
+    </li>
+    <li>
+      <a23 href="23babel.html">23tema</a23>
+    </li>
+    <li>
+      <a24 href="24babel.html">24tema</a24>
+    </li>
+    <li>
+      <a25 href="25babel.html">25tema</a25>
+    </li>
+    <li>
+      <a26 href="26babel.html">26tema</a26>
+    </li>
+    <li>
+      <a27 href="27babel.html">27tema</a27>
+    </li>
+    <li>
+      <a28 href="28babel.html">28tema</a28>
+    </li>
+    <li>
+      <a29 href="29babel.html">29tema</a29>
+    </li>
+    <li>
+      <a30 href="30babel.html">30tema</a30>
+    </li>
+  </ul>
+  <div class="vert">
+    <h2>Подключаем jsx</h2>
+   <p>BabelJS, также как и библиотеки React и ReactDOM, подключается скриптами в заголовке страницы, в теге head.</p>
+ <p> &lt;script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"&gt;&lt;/script&gt;</p>
+ <p>BabelJS ищет на странице теги script со специальным значением атрибута type: text/babel, читает их содержимое и после преобразования JSX добавляет на страницу скрипт со стандартным типом. Сам же браузер игнорирует код в таких тегах.</p>
+    <img src="babel.png" alt="">
+    <p>Если BabelJS подключён к странице правильно, после выполнения этого кода в корневом элементе появился заголовок h1 с текстом «Моё первое приложение на Реакт».</p>
+    <p>App — это функция, которая описывает корневой компонент приложения и служит отправной точкой для дерева компонентов.</p>
+    
+    <p>
+  Ваша задача на этом шаге — передать методу root.render компонент App, который вернёт JSX-элемент заголовка.
+    </p>
+    <p style="border: 1px red solid;">
+        В тренажёре мы используем BabelJS в версии standalone, которая специально создана для использования в браузерах. В продуктовой разработке Babel используют вместе с различными сборщиками проектов, такими как webpack и gulp, и устанавливают необходимый «функционал» с помощью менеджера пакетов NPM. Сам NPM входит в состав Node.js.
+    </p>
+    <div id="root"></div>
+    </div>
+    <script type="text/babel">
+  const container = document.getElementById('root');
+  const root = ReactDOM.createRoot(container);
+  root.render(<App/>);
+
+  function App() {
+    return <h1>Моё первое приложение на Реакт</h1>;
+  }
+</script>
+</body>
+</html>
